@@ -1,0 +1,23 @@
+{
+  "name": "shail-portfolio",
+  "version": "1.0.0",
+  "description": "Modern black and white portfolio website for Shail K Patel",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx live-server --port=3000 --open=/index.html",
+    "start": "npx live-server --port=3000 --open=/index.html",
+    "build": "echo 'Static site - no build needed'",
+    "preview": "npx live-server --port=4173 --open=/index.html"
+  },
+  "keywords": [
+    "portfolio",
+    "machine-learning",
+    "web-development",
+    "static-site"
+  ],
+  "author": "Shail K Patel",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
