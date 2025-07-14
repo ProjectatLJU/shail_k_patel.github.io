@@ -116,14 +116,11 @@ p {
 .nav-logo {
   font-size: 1.5rem;
   font-weight: 800;
-  color: #111827;
+  color: #ffffff;
 }
 
 .logo-text {
-  background: linear-gradient(135deg, #111827 0%, #374151 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ffffff;
 }
 
 .nav-links {
@@ -924,12 +921,45 @@ p {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .footer-text {
   color: #6b7280;
   font-size: 0.875rem;
+  margin: 0;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.footer-social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #888888;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.footer-social-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.footer-social-link svg {
+  flex-shrink: 0;
 }
 
 /* Responsive Design */
@@ -1044,13 +1074,22 @@ p {
   .cta-card {
     padding: 2rem;
   }
+  
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-socials {
+    justify-content: center;
+  }
 }
 
 /* Animation Classes */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.6s ease;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .fade-in.visible {
@@ -1061,7 +1100,7 @@ p {
 .slide-in-left {
   opacity: 0;
   transform: translateX(-50px);
-  transition: all 0.6s ease;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .slide-in-left.visible {
@@ -1072,7 +1111,7 @@ p {
 .slide-in-right {
   opacity: 0;
   transform: translateX(50px);
-  transition: all 0.6s ease;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .slide-in-right.visible {
@@ -1083,11 +1122,23 @@ p {
 .scale-in {
   opacity: 0;
   transform: scale(0.9);
-  transition: all 0.6s ease;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scale-in.visible {
   opacity: 1;
   transform: scale(1);
+}
+
+/* Project card animations */
+.project-card {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 

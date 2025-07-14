@@ -53,8 +53,8 @@ document.querySelectorAll('.nav-link').forEach(link => {
 
 // Intersection Observer for animations
 const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
+  threshold: 0.2,
+  rootMargin: '0px 0px -100px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -66,12 +66,22 @@ const observer = new IntersectionObserver((entries) => {
       if (entry.target.classList.contains('skills-section')) {
         animateSkillBars();
       }
+      
+      // Animate project cards with stagger
+      if (entry.target.classList.contains('projects-section')) {
+        const cards = entry.target.querySelectorAll('.project-card');
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add('visible');
+          }, index * 150);
+        });
+      }
     }
   });
 }, observerOptions);
 
 // Observe elements for animation
-document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .skills-section').forEach(el => {
+document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .skills-section, .projects-section, .education-section, .contact-section').forEach(el => {
   observer.observe(el);
 });
 
@@ -84,13 +94,11 @@ function addAnimationClasses() {
   // Project cards
   document.querySelectorAll('.project-card').forEach((card, index) => {
     card.classList.add('fade-in');
-    card.style.transitionDelay = `${index * 0.1}s`;
   });
   
   // Skill categories
   document.querySelectorAll('.skill-category').forEach((category, index) => {
     category.classList.add('scale-in');
-    category.style.transitionDelay = `${index * 0.1}s`;
   });
   
   // Education elements
@@ -100,6 +108,11 @@ function addAnimationClasses() {
   // Contact elements
   document.querySelector('.contact-info')?.classList.add('slide-in-left');
   document.querySelector('.contact-cta')?.classList.add('slide-in-right');
+  
+  // Section headers
+  document.querySelectorAll('.section-header').forEach(header => {
+    header.classList.add('fade-in');
+  });
 }
 
 // Animate skill progress bars
